@@ -1,0 +1,91 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    outputs:
+      release_created: ${{ steps.release-please.outputs.release_created }}
+      upload_url: ${{ steps.release-please.outputs.upload_url }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Release Please
+        uses: googleapis/release-please-action@v4
+        id: release-please
+        with:
+          release-type: node
+          bump-minor-pre-major: true
+          package-name: lowendmod
+          versioning-strategy: always-bump-minor
+
+  build-and-release:
+    runs-on: ubuntu-latest
+    if: ${{ needs.release-please.outputs.release_created }}
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    needs: release-please 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for Chrome
+        run: npm run build:chrome
+
+      - name: Archive Chrome build artifacts
+        run: |
+          cd dist
+          zip -r ../chrome.zip ./*
+          cd ..
+
+      - name: Build for Firefox
+        run: npm run build:firefox
+
+      - name: Archive Firefox build artifacts
+        run: |
+          cd dist
+          zip -r ../firefox.zip ./*
+          cd ..
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.release-please.outputs.upload_url }}
+          asset_path: ./chrome.zip
+          asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-chrome.zip
+          asset_content_type: application/zip
+
+      - name: Upload Firefox Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.release-please.outputs.upload_url }}
+          asset_path: ./firefox.zip
+          asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-firefox.zip
+          asset_content_type: application/zip
