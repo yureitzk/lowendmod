@@ -1,0 +1,39 @@
+{
+	"name": "lowendmod",
+	"version": "0.0.1",
+	"displayName": "LowEndMod",
+	"author": "yureitzk",
+	"description": "A lightweight browser extension that adds various enhancements and usability tweaks to the LowEndTalk forum.",
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"build:chrome": "cross-env MANIFEST_VERSION=3 npm run build",
+		"build:firefox": "cross-env MANIFEST_VERSION=2 FIREFOX=1 npm run build",
+		"watch": "vite build --watch --mode development --minify false",
+		"dev": "vite",
+		"serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",
+		"serve:chrome": "web-ext run -t chromium --start-url \"https://example.com\" --source-dir ./dist/",
+		"check": "svelte-check --tsconfig ./tsconfig.json"
+	},
+	"devDependencies": {
+		"@samrum/vite-plugin-web-extension": "^5.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.1.2",
+		"@tsconfig/svelte": "^5.0.2",
+		"@types/chrome": "^0.0.254",
+		"@types/webextension-polyfill": "^0.10.6",
+		"cross-env": "^7.0.3",
+		"prettier": "^3.5.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"svelte": "^4.2.5",
+		"svelte-check": "^3.6.0",
+		"svelte-preprocess": "^5.1.0",
+		"tslib": "^2.6.2",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.0",
+		"web-ext": "^7.8.0"
+	},
+	"dependencies": {
+		"dotenv": "^16.5.0",
+		"webextension-polyfill": "^0.10.0"
+	}
+}
