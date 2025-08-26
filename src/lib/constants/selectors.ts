@@ -28,7 +28,6 @@ export const commentsListItemsSelector = 'ul.Comments li.ItemComment';
 export const commentsWrapSelector = '.CommentsWrap';
 export const commentUsernameSelector = 'a.Username';
 export const commentItemSelector = '.ItemComment';
-export const commentThankBtnSelector = '.MItem.Thank';
 export const commentBodyTextSelector = '.Message';
 export const commentSignatureSelector = '.Signature';
 
