@@ -14,7 +14,6 @@ import {
     commentMetaSelector,
     commentsListItemsSelector,
     commentsWrapSelector,
-    commentThankBtnSelector,
     discussionContentSelector,
     discussionHeaderSelector,
     discussionItemSelector,
@@ -548,9 +547,6 @@ async function renderDiscussionComments(
 		if (metaElement.querySelector(`#${containerId}`)) {
 			continue;
 		}
-
-		const thankBtn = metaElement.querySelector(commentThankBtnSelector);
-		if (!thankBtn) continue;
 
 		const appContainer = document.createElement('span');
 		appContainer.id = containerId;
