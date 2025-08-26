@@ -13,7 +13,7 @@ export const profileEditBtnSelector = '.ProfileOptions .Button-EditProfile';
 
 export const discussionContentSelector = '.ContentColumn #content';
 export const discussionHeaderSelector = '.Discussion';
-export const discussionListPageControlsSelector = '#content .PageControls';
+export const discussionListPageControlsSelector = '[id="content"], [id="Content"] .PageControls';
 export const discussionItemSelector = '.ItemDiscussion';
 export const discussionItemWithPhotoSelector = '.ItemDiscussion-withPhoto';
 export const discussionsListSelector = 'ul.Discussions';
