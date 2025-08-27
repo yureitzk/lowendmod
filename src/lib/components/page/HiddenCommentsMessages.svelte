@@ -10,6 +10,7 @@
 		hiddenCommentDataAttribute,
 	} from '~/lib/constants/selectors';
 	import { setBadgeTextMessageType } from '~/lib/constants/browser';
+	import i18n from '~/plugins/i18n';
 
 	let commentsCount = 0;
 	let observer: MutationObserver;
@@ -73,7 +74,7 @@
 
 {#if commentsCount > 0}
 	<span class="message">
-		{commentsCount} comments are hidden
+		{i18n.t('hidden_comments.commentsHidden', { count: commentsCount })}
 		<span
 			class="button"
 			role="button"

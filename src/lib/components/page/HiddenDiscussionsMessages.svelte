@@ -10,6 +10,7 @@
 		hiddenDiscussionDataAttribute,
 	} from '~/lib/constants/selectors';
 	import { setBadgeTextMessageType } from '~/lib/constants/browser';
+	import i18n from '~/plugins/i18n';
 
 	let discussionCount = 0;
 	let observer: MutationObserver;
@@ -74,7 +75,7 @@
 
 {#if discussionCount > 0}
 	<span class="message">
-		{discussionCount} discussions are hidden
+		{i18n.t('hidden_duscussions.duscussionsHidden', { count: discussionCount })}
 		<span
 			class="button"
 			role="button"

@@ -1,0 +1,18 @@
+{
+	"hidden_search_results": {
+		"resultsHidden_one": "{{count}} result is hidden",
+		"resultsHidden_other": "{{count}} results are hidden"
+	},
+	"hidden_duscussions": {
+		"duscussionsHidden_one": "{{count}} discussion is hidden",
+		"duscussionsHidden_other": "{{count}} discussions are hidden"
+	},
+	"hidden_activities": {
+		"activitiesHidden_one": "{{count}} message is hidden",
+		"activitiesHidden_other": "{{count}} messages are hidden"
+	},
+	"hidden_comments": {
+		"commentsHidden_one": "{{count}} comment is hidden",
+		"commentsHidden_other": "{{count}} comments are hidden"
+	}
+}

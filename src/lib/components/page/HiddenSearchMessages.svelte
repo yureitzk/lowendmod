@@ -10,6 +10,7 @@
 		hiddenSearchResultDataAttribute,
 	} from '~/lib/constants/selectors';
 	import { setBadgeTextMessageType } from '~/lib/constants/browser';
+	import i18n from '~/plugins/i18n';
 
 	let searchResultsCount = 0;
 	let observer: MutationObserver;
@@ -73,7 +74,7 @@
 
 {#if searchResultsCount > 0}
 	<span class="message">
-		{searchResultsCount} results are hidden
+		{i18n.t('hidden_search_results.resultsHidden', { count: searchResultsCount })}
 		<span
 			class="button"
 			role="button"
