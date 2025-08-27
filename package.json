@@ -9,6 +9,7 @@
 		"build": "vite build",
 		"build:chrome": "cross-env MANIFEST_VERSION=3 npm run build",
 		"build:firefox": "cross-env MANIFEST_VERSION=2 FIREFOX=1 npm run build",
+		"build:firefox-prod": "cross-env MANIFEST_VERSION=2 FIREFOX=1 ENVIRONMENT=production npm run build",
 		"watch": "vite build --watch --mode development --minify false",
 		"dev": "vite",
 		"serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",

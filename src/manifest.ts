@@ -9,6 +9,7 @@ const hosts = [domain];
 const hostsGlobs = hosts.map((host) => getSiteHostGlob(host));
 
 const isFirefox = process.env?.FIREFOX === '1' ? true : false;
+const isProduction = process.env?.ENVIRONMENT === 'production' ? true : false;
 
 const sharedManifest: Partial<chrome.runtime.ManifestBase> = {
 	content_scripts: [
@@ -39,8 +40,10 @@ const sharedManifest: Partial<chrome.runtime.ManifestBase> = {
 	...(isFirefox && {
 		browser_specific_settings: {
 			gecko: {
-				id: 'addon@example.com',
-				strict_min_version: '89',
+				...(!isProduction && {
+					id: 'addon@example.com',
+				}),
+				strict_min_version: '89.0',
 			},
 		},
 	}),
