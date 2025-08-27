@@ -13,6 +13,7 @@
 	import { setBadgeTextMessageType } from '~/lib/constants/browser';
 	import { onMount } from 'svelte';
 	import { hiddenUsers } from '~/lib/stores/hiddenUsersStore';
+	import i18n from '~/plugins/i18n';
 
 	let activitiesCount = 0;
 	let observer: MutationObserver;
@@ -88,7 +89,7 @@
 
 {#if activitiesCount > 0}
 	<span class="message">
-		{activitiesCount} messages are hidden
+		{i18n.t('hidden_activities.activitiesHidden', { count: activitiesCount })}
 		<span
 			class="button"
 			role="button"
