@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/yureitzk/lowendmod/compare/v0.1.0...v0.2.0) (2025-08-31)
+
+
+### Features
+
+* update release.yml ([34262cc](https://github.com/yureitzk/lowendmod/commit/34262cc46fd94edabe172f44373d6d303c232a0a))
+
 ## [0.1.0](https://github.com/yureitzk/lowendmod/compare/v0.0.1...v0.1.0) (2025-08-27)
 
 
