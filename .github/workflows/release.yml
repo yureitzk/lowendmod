@@ -80,12 +80,20 @@ jobs:
           asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-chrome.zip
           asset_content_type: application/zip
 
+      - name: Production build for Firefox
+        run: npm run build:firefox-prod
+
+      - name: Archive Firefox build artifacts
+        run: |
+          cd dist
+          zip -r ../firefox-prod.zip ./*
+          cd ..
+
       - name: Upload Firefox Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: wdzeng/firefox-addon@v1
         with:
-          upload_url: ${{ needs.release-please.outputs.upload_url }}
-          asset_path: ./firefox.zip
-          asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-firefox.zip
-          asset_content_type: application/zip
+          addon-guid: "{efb1267e-844d-44df-8896-944f68a13a5f}"
+          xpi-path: firefox-prod.zip
+          self-hosted: false
+          jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
