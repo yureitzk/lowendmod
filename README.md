@@ -2,6 +2,10 @@
 
 LowEndMod is a lightweight browser extension that adds various enhancements and usability tweaks to the [LowEndTalk](https://lowendtalk.com/) forum.
 
+## Installation
+
+Install the Firefox version from the [Firefox Addons Store](https://addons.mozilla.org/en-US/firefox/addon/lowendmod/)
+
 ## Features
 
 - Hide posts, threads, or comments by specific users or keywords
