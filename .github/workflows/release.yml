@@ -70,7 +70,7 @@ jobs:
           zip -r ../firefox.zip ./*
           cd ..
 
-      - name: Upload Release Assets
+      - name: Upload Chrome Release Assets
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,6 +78,16 @@ jobs:
           upload_url: ${{ needs.release-please.outputs.upload_url }}
           asset_path: ./chrome.zip
           asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-chrome.zip
+          asset_content_type: application/zip
+
+      - name: Upload Firefox Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.release-please.outputs.upload_url }}
+          asset_path: ./firefox.zip
+          asset_name: lowendmod-${{ needs.release-please.outputs.tag_name }}-firefox.zip
           asset_content_type: application/zip
 
       - name: Production build for Firefox
