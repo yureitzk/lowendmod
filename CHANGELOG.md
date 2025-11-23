@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/yureitzk/lowendmod/compare/v0.2.0...v0.3.0) (2025-11-23)
+
+
+### Features
+
+* add data_collection_permissions property for Firefox ([eab089f](https://github.com/yureitzk/lowendmod/commit/eab089fe65fb1a51e5db88916838c5ef4f7d9f83))
+
 ## [0.2.0](https://github.com/yureitzk/lowendmod/compare/v0.1.0...v0.2.0) (2025-08-31)
 
 
