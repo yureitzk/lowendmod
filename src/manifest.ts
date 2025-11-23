@@ -40,6 +40,9 @@ const sharedManifest: Partial<chrome.runtime.ManifestBase> = {
 	...(isFirefox && {
 		browser_specific_settings: {
 			gecko: {
+				data_collection_permissions: {
+					required: ['none'],
+				},
 				...(!isProduction && {
 					id: 'addon@example.com',
 				}),
