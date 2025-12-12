@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/yureitzk/lowendmod/compare/v0.3.0...v0.4.0) (2025-12-12)
+
+
+### Features
+
+* initial firefox android support ([b6183de](https://github.com/yureitzk/lowendmod/commit/b6183dee081e44fb03cebe2ceab3b7fd2fbe1eaf))
+
 ## [0.3.0](https://github.com/yureitzk/lowendmod/compare/v0.2.0...v0.3.0) (2025-11-23)
 
 
