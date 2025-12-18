@@ -18,13 +18,13 @@ Install the Firefox version from the [Firefox Addons Store](https://addons.mozil
 <details>
 	<summary>View Screenshots</summary>
 	<div>
-		<img src='img/settings.png' alt='Available settings'>
+		<img src='img/settings.png' alt='Available settings' width=700>
 	</div>
 	<div>
-		<img src='img/hidden_activity.png' alt='Example of hidden messages from a specific user'>
+		<img src='img/hidden_activity.png' alt='Example of hidden messages from a specific user' width=580>
 	</div>	
 	<div>
-		<img src='img/hide_user.png' alt='Hide a user directly from their profile page'>
+		<img src='img/hide_user.png' alt='Hide a user directly from their profile page' width=450>
 	</div>
 </details>
 
